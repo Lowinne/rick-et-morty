@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { RickAndMortyCharactersList } from './pages/characters';
+import {CharacterDetails, RickAndMortyCharactersList} from './pages/characters';
 
 function App() {
   
@@ -14,6 +12,7 @@ function App() {
         <Route path="/characters" element={<RickAndMortyCharactersList />} />
         {/* Route par défaut pour gérer les pages non trouvées */}
         <Route path="*" element={<div>Page non trouvée</div>} />
+        <Route path="/characters/:id" element={<CharacterDetails />} />
       </Routes>
     </Router>
   );

@@ -14,10 +14,12 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "\n    query GET_ALL_CHARACTERS($page: Int!) {\n      characters(page: $page) {\n        info {\n          count\n        }\n        results {\n          id\n          name\n          image\n        }\n      }\n    }\n": typeof types.Get_All_CharactersDocument,
+    "\n  query GET_ALL_CHARACTERS($page: Int!) {\n    characters(page: $page) {\n      info {\n        count\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n": typeof types.Get_All_CharactersDocument,
+    "\n  query GET_CHARACTER_DETAILS($id: ID!) {\n    character(id: $id) {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      origin {\n        name\n      }\n    }\n  }\n": typeof types.Get_Character_DetailsDocument,
 };
 const documents: Documents = {
-    "\n    query GET_ALL_CHARACTERS($page: Int!) {\n      characters(page: $page) {\n        info {\n          count\n        }\n        results {\n          id\n          name\n          image\n        }\n      }\n    }\n": types.Get_All_CharactersDocument,
+    "\n  query GET_ALL_CHARACTERS($page: Int!) {\n    characters(page: $page) {\n      info {\n        count\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n": types.Get_All_CharactersDocument,
+    "\n  query GET_CHARACTER_DETAILS($id: ID!) {\n    character(id: $id) {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      origin {\n        name\n      }\n    }\n  }\n": types.Get_Character_DetailsDocument,
 };
 
 /**
@@ -37,7 +39,11 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    query GET_ALL_CHARACTERS($page: Int!) {\n      characters(page: $page) {\n        info {\n          count\n        }\n        results {\n          id\n          name\n          image\n        }\n      }\n    }\n"): (typeof documents)["\n    query GET_ALL_CHARACTERS($page: Int!) {\n      characters(page: $page) {\n        info {\n          count\n        }\n        results {\n          id\n          name\n          image\n        }\n      }\n    }\n"];
+export function gql(source: "\n  query GET_ALL_CHARACTERS($page: Int!) {\n    characters(page: $page) {\n      info {\n        count\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n"): (typeof documents)["\n  query GET_ALL_CHARACTERS($page: Int!) {\n    characters(page: $page) {\n      info {\n        count\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  query GET_CHARACTER_DETAILS($id: ID!) {\n    character(id: $id) {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      origin {\n        name\n      }\n    }\n  }\n"): (typeof documents)["\n  query GET_CHARACTER_DETAILS($id: ID!) {\n    character(id: $id) {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      origin {\n        name\n      }\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
